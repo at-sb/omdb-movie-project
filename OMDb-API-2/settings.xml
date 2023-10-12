@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" xsi:type="con:RestService" id="eeba8400-12ff-45d9-8560-491652630dce" name="OMDb API 2" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="http://www.omdbapi.com/swagger.json" basePath="">
+  <con:description id="fbb264f9-61a3-4afb-94d7-f8458cc004a7">This API requires authorization, you can get a free key here: [http://omdbapi.com/apikey.aspx](http://omdbapi.com/apikey.aspx)</con:description>
+  <con:settings>
+    <con:setting id="44d6ff2b-e1bb-4ec7-9b13-3870c883ef7efileName">OMDb-API-2</con:setting>
+    <con:setting id="0ce95452-726f-487c-bfe5-7438699df084fileName">OMDb-API-2</con:setting>
+    <con:setting id="eeba8400-12ff-45d9-8560-491652630dcefileName">OMDb-API-2</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="http://www.omdbapi.com/swagger.json">
+    <con:part>
+      <con:url>http://www.omdbapi.com/swagger.json</con:url>
+      <con:content>{
+  "swagger": "2.0",
+  "info": {
+    "description": "This API requires authorization, you can get a free key here: [http://omdbapi.com/apikey.aspx](http://omdbapi.com/apikey.aspx)",
+    "version": "1.0",
+    "title": "OMDb API",
+    "termsOfService": "http://omdbapi.com/legal.htm",
+    "contact": {
+      "email": "bfritz@fadingsignal.com"
+    },
+    "license": {
+      "name": "CC BY-NC 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "host": "omdbapi.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Title Parameter",
+      "description": "e.g. ?t=title"
+    },
+    {
+      "name": "ID Parameter",
+      "description": "e.g. ?i=tt0000001"
+    },
+    {
+      "name": "Search Parameter",
+      "description": "e.g. ?s=title"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "security": [
+    {
+      "APIKeyQueryParam": []
+    }
+  ],
+  "paths": {
+    "/?t": {
+      "get": {
+        "tags": [
+          "Title Parameter"
+        ],
+        "summary": "Returns the most popular match for a given title",
+        "operationId": "getTitle",
+        "parameters": [
+          {
+            "name": "t",
+            "in": "query",
+            "description": "Title of movie or series",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "y",
+            "in": "query",
+            "description": "Year of release",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Return movie or series",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "movie",
+              "series"
+            ]
+          },
+          {
+            "name": "plot",
+            "in": "query",
+            "description": "Return short or full plot",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "short",
+              "full"
+            ]
+          },
+          {
+            "name": "r",
+            "in": "query",
+            "description": "The response type to return",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "401": {
+            "description": "Not authenticated"
+          }
+        },
+        "security": [
+          {
+            "APIKeyQueryParam": []
+          }
+        ]
+      }
+    },
+    "/?i": {
+      "get": {
+        "tags": [
+          "ID Parameter"
+        ],
+        "summary": "Returns a single result based on the ID provided",
+        "operationId": "getId",
+        "parameters": [
+          {
+            "name": "i",
+            "in": "query",
+            "description": "A valid IMDb ID (e.g. tt0000001)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "plot",
+            "in": "query",
+            "description": "Return short or full plot",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "short",
+              "full"
+            ]
+          },
+          {
+            "name": "r",
+            "in": "query",
+            "description": "The response type to return",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "401": {
+            "description": "Not authenticated"
+          }
+        },
+        "security": [
+          {
+            "APIKeyQueryParam": []
+          }
+        ]
+      }
+    },
+    "/?s": {
+      "get": {
+        "tags": [
+          "Search Parameter"
+        ],
+        "summary": "Returns an array of results for a given title",
+        "operationId": "titleSearch",
+        "parameters": [
+          {
+            "name": "s",
+            "in": "query",
+            "description": "Title of movie or series",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "y",
+            "in": "query",
+            "description": "Year of release",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Return movie or series",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "movie",
+              "series"
+            ]
+          },
+          {
+            "name": "r",
+            "in": "query",
+            "description": "The response type to return",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number to return",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "401": {
+            "description": "Not authenticated"
+          }
+        },
+        "security": [
+          {
+            "APIKeyQueryParam": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "APIKeyQueryParam": {
+      "type": "apiKey",
+      "name": "apikey",
+      "in": "query"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}</con:content>
+      <con:type>https://swagger.io/swagger2/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>http://omdbapi.com</con:endpoint>
+    <con:endpoint>https://omdbapi.com</con:endpoint>
+  </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:interface>

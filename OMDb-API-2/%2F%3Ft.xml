@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" name="/?t" path="/?t" id="c9f39ac2-c9c7-482d-a4f1-0c2be0361f79">
+  <con:settings id="fb4622ee-1dac-403b-a491-fc4e4780bfa8">
+    <con:setting id="3e4014cd-ce0f-4141-a14c-c926a6d084ccfileName">%2F%3Ft</con:setting>
+    <con:setting id="ae07aa81-e717-4ded-a91f-74c56c665fbafileName">%2F%3Ft</con:setting>
+    <con:setting id="c9f39ac2-c9c7-482d-a4f1-0c2be0361f79fileName">%2F%3Ft</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getTitle" id="810ec6dd-be40-4ade-8a92-c8486c92fce3" method="GET">
+    <con:description>Returns the most popular match for a given title</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>t</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Title of movie or series</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>y</con:name>
+        <con:style>QUERY</con:style>
+        <con:dataType>integer</con:dataType>
+        <con:description>Year of release</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>type</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return movie or series</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>plot</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return short or full plot</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>r</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>The response type to return</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>callback</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>JSONP callback name</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>apikey</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="67b22c6f-d55d-45f9-8f40-342f9af1b62d" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://omdbapi.com?apikey=fbfa51c9&amp;</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://omdbapi.com/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="r" value="json"/>
+        <con:entry key="apikey" value="fbfa51c9"/>
+        <con:entry key="t" value="tom"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>t</con:entry>
+        <con:entry>y</con:entry>
+        <con:entry>type</con:entry>
+        <con:entry>plot</con:entry>
+        <con:entry>r</con:entry>
+        <con:entry>callback</con:entry>
+        <con:entry>apikey</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

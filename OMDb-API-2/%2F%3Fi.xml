@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" name="/?i" path="/?i" id="4095911a-4593-4364-81fd-8c8cca53dc32">
+  <con:settings id="ed80ef54-2737-4d5c-b4c1-00e5c86e261a">
+    <con:setting id="7f96a9ab-7d3c-45da-bf92-c6862eddb6e4fileName">%2F%3Fi</con:setting>
+    <con:setting id="12bc9e15-376f-4951-993f-32891df0f6bffileName">%2F%3Fi</con:setting>
+    <con:setting id="4095911a-4593-4364-81fd-8c8cca53dc32fileName">%2F%3Fi</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getId" id="54f59b33-6565-424d-8a30-765cb55e4e3d" method="GET">
+    <con:description>Returns a single result based on the ID provided</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>s</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+        <con:description>JSONP callback name</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>apiKey</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="2e4ccc7e-29fe-4fee-bf3b-a5d7f050466f" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://omdbapi.com</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://omdbapi.com/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="s" value="2022"/>
+        <con:entry key="apiKey" value="fbfa51c9"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>s</con:entry>
+        <con:entry>apiKey</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>
